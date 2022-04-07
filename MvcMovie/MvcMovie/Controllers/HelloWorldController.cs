@@ -9,16 +9,18 @@ namespace MvcMovie.Controllers
         // O primeiro comentário indica que este é um método HTTP GET invocado por meio do acréscimo de /HelloWorld/ à URL base.
 
         // GET: /HelloWorld/
-        public string Index()
+        public IActionResult Index()
         {
-            return "This is my default action...";
+            return View();
         }
 
         // GET: /HelloWorld/Welcome/
-        public string Welcome(string name, int ID = 1)
+        public IActionResult Welcome(string name, int numTimes = 1)
         {
-            // HtmlEncoder.Default.Encode protege o aplicativo contra entradas mal-intencionadas, como por meio de JavaScript.
-            return HtmlEncoder.Default.Encode($"Hello {name}, ID: {ID}.");
+            ViewData["Message"] = $"Hello, {name}";
+            ViewData["NumTimes"] = numTimes;
+
+            return View();
         }
     }
 }
