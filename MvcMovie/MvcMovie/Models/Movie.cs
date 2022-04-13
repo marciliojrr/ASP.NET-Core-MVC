@@ -17,5 +17,6 @@ namespace MvcMovie.Models
 
         [Column(TypeName = "decimal(18, 2)")] // Necessário para que o Entity Framework Core possa mapear corretamente o Price para a moeda no banco de dados.
         public decimal Price { get; set; }
+        public string? Rating { get; set; }
     }
 }
